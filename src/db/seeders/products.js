@@ -11,9 +11,10 @@ const seedData = employee => {
   const items = [];
   for (let i = 1; i < 11; i++) {
     const newItem = {
-      department_id: i,
-      name: `${faker.commerce.department()}`,
-      manager_id: i
+      id: i,
+      description: `product ${i}`,
+      imageUrl: "image url",
+      price: 5000
     };
     items.push(newItem);
   }
@@ -23,19 +24,10 @@ console.log(seedData());
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const employee = await queryInterface.sequelize.query(
-      "SELECT manager_id from Employees;"
-    );
-    console.log("employee", employee);
-    return queryInterface.bulkInsert(
-      "Departments",
-      await seedData(employee[0]),
-      {
-        returning: true
-      }
-    );
+    return queryInterface.bulkInsert("products", await seedData(), {
+      returning: true
+    });
   },
 
-  down: async queryInterface =>
-    queryInterface.bulkDelete("Departments", null, {})
+  down: async queryInterface => queryInterface.bulkDelete("products", null, {})
 };

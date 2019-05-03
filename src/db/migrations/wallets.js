@@ -1,26 +1,25 @@
 "use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Job_History", {
-      title_id: {
+    return queryInterface.createTable("wallets", {
+      id: {
         type: Sequelize.INTEGER,
-        refrences: { models: "Titles", key: "title_id" }
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false
       },
-      department_id: {
+      userId: {
         type: Sequelize.INTEGER,
-        refrences: { models: "Departments", key: "department_id" }
+        refrences: { models: "users", key: "id" },
+        allowNull: false
       },
 
-      date: {
-        type: Sequelize.STRING
-      },
-      pay: {
-        type: Sequelize.STRING
-      },
-      employee_id: {
+      balance: {
         type: Sequelize.INTEGER,
-        refrences: { models: "Employees", key: "employee_id" }
+        allowNull: false,
+        defaultValue: 0.0
       },
+      cardNumber: { type: Sequelize.STRING },
       createdAt: {
         allowNull: false,
         type: Sequelize.STRING,
@@ -34,6 +33,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("Employees");
+    return queryInterface.dropTable("wallets");
   }
 };

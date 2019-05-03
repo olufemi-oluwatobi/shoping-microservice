@@ -1,4 +1,4 @@
-## Resume Pro 2.
+## Shoping micro-service
 
 ### Setup
 
@@ -18,9 +18,7 @@
 
 ##### Database operations
 
-- Import database file -> `mysql -u username -p cv < cv.sql`
-- Seed Database -> `npm run seed-db`.
-
 ##### Start development server
 
 - Start local server -> `npm start`
+- run documentations `http://localhost:2000/docs/core`

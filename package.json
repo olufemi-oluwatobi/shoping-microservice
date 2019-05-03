@@ -6,7 +6,8 @@
   "scripts": {
     "start": "babel-node server.js",
     "seed": "sequelize db:seed:all",
-    "reset-db": "sequelize db:seed:undo:all"
+    "reset-db": "sequelize db:seed:undo:all",
+    "migrate": "sequelize db:migrate"
   },
   "author": "",
   "license": "ISC",
@@ -17,10 +18,15 @@
     "@babel/preset-env": "^7.4.3",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
+    "body-parser": "^1.19.0",
     "express": "^4.16.4",
     "faker": "^4.1.0",
     "mysql2": "^1.6.5",
     "sequelize": "4.28.0",
-    "sequelize-cli": "^5.4.0"
+    "sequelize-cli": "^5.4.0",
+    "swagger-jsdoc": "^3.2.9",
+    "swagger-model-validator": "^3.0.10",
+    "swagger-ui-express": "^4.0.2",
+    "uuid": "^3.3.2"
   }
 }

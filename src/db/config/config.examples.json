@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "PASSWORD",
-    "database": "cv",
+    "password": "password",
+    "database": "shopping",
     "host": "127.0.0.1",
     "dialect": "mysql",
     "params": {
